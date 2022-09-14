@@ -38,6 +38,9 @@ const Banner = () => {
 
     
 
+
+    
+
 return (
   <StyledBanner>
     <StyledHeading>UNIT INVENTORY TRACKER</StyledHeading>
@@ -50,6 +53,7 @@ return (
         Database: Online <StyledImg src="/images/online.ico" alt="text" />
       </StyledOnline>
     )}
+    
 
     <StyledWelcome>Welcome Rick</StyledWelcome>
   </StyledBanner>

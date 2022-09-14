@@ -21,10 +21,11 @@ const MissionDiv = styled.div`
   font-family: "Roboto-Flex";
   border: 1px solid black;
   background-color: gray;
-  border-radius: 3px;
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  border-radius: 10px;
+  margin-top: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 3%;
 `;
 const DeveloperDiv = styled.div`
   text-align: center;
@@ -47,10 +48,7 @@ const LinksContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-function myFunction() {
-  var element = document.body;
-  element.classList.toggle("dark-mode");
-}
+
 
 export const About = () => {
   return (
@@ -58,18 +56,22 @@ export const About = () => {
       <MissionDiv className="mission">
         <Banner>Our Vision</Banner>
         <p style={{ fontSize: "20px", fontFamily: "Roboto-Flex" }}>
-        As a unit supply manager, I need a system that can orderly track all items of inventory that are assigned to the base/squadron. This system needs to track all users who check out inventory as well as track the date it was assigned, with the ability to put a date of return. 
+          As a unit supply manager, I need a system that can orderly track all
+          items of inventory that are assigned to the base/squadron. This system
+          needs to track all users who check out inventory as well as track the
+          date it was assigned, with the ability to put a date of return.
         </p>
         <Banner>Our Mission</Banner>
         <p style={{ fontSize: "20px", fontFamily: "Roboto-Flex" }}>
-          To provide access to a centralized enpoint that manages your unit's assets.
+          To provide access to a centralized enpoint that manages your unit's
+          assets.
         </p>
       </MissionDiv>
 
       <Container fluid>
         <Row>
-          <Col>
           <Banner>Developers</Banner>
+          <Col>
             <Card style={{ width: "15rem", height: "15rem" }}>
               <Card.Body>
                 <Card.Img
@@ -98,6 +100,8 @@ export const About = () => {
                 </Button>
               </Card.Body>
             </Card>
+          </Col>
+          <Col>
             <Card style={{ width: "15rem", height: "15rem" }}>
               <Card.Body>
                 <Card.Img

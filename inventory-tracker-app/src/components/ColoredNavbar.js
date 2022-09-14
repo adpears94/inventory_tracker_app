@@ -7,6 +7,10 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function NavScrollExample() {
+
+  
+
+
   return (
     <Navbar bg="primary" variant="dark">
       <Container fluid>
@@ -21,7 +25,8 @@ function NavScrollExample() {
             <Nav.Link href="/items">Items</Nav.Link>
             <Nav.Link href="/checkout">Checked Out Items</Nav.Link>
             <Nav.Link href="/resources">Useful Resources</Nav.Link>            
-            <Nav.Link href="/about">About</Nav.Link>          
+            <Nav.Link href="/about">About</Nav.Link>      
+             
           </Nav>          
         </Navbar.Collapse>
       </Container>

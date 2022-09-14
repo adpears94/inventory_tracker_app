@@ -7,6 +7,7 @@ import { About } from "./components/About";
 import SmallExample from "./components/ItemTable";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {ItemTable} from "./components/ItemTable";
+import "./App.css";
 
 export const InventoryContext = React.createContext();
 
