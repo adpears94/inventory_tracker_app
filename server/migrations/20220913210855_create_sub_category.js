@@ -1,11 +1,13 @@
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
- */
-export function up(knex) {
+ * 
+ */exports.up = function(knex){
   return knex.schema.createTable("sub_category", (table) => {
     table.increments("id");
     table.string("sub_category_name");
+    table.integer('category_id');
+    table.foreign('category_id').references('category.id');
   });
 }
 
@@ -13,6 +15,6 @@ export function up(knex) {
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-export function down(knex) {
+ exports.down = function(knex) {
   return knex.schema.dropTableIfExists("sub_category");
 }

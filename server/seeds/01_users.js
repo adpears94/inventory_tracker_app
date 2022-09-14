@@ -2,9 +2,10 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> } 
  */
-export async function seed(knex) {
+// export async function seed(knex)
+exports.seed = async function(knex) {
   // Deletes ALL existing entries
-  await knex.schema.raw('TRUNCATE TABLE users CASCADE');
+  await knex.schema.raw('TRUNCATE users CASCADE');
   await knex('users').del();
   await knex('users').insert([
     {user_name: 'markscarna', squadron: '375th CSPTS', base: 'Scott AFB'},

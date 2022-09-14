@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "description": "## Planning: - Github: https://github.com/jangoflyte/Project-3 - Trello: https://trello.com/b/CZnbSZrL/project-3  - Figma: https://www.figma.com/file/1HjLFW5m19RylK1Kx0hKf9/Untitled?node-id=0%3A1  - Word Doc: https://docs.google.com/document/d/1hlCnAcFzcLfWCOGo9BSLi8VJD8x6sclpCxnRINSJyDo/edit",
   "main": "index.js",
-  "type": "module",
-  
   "scripts": {
-    "start": "nodemon ./server.js",
+    "start": "nodemon ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +19,7 @@
   },
   "homepage": "https://github.com/jangoflyte/Project-3#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.1",
     "knex": "^2.3.0",
     "nodemon": "^2.0.19",
