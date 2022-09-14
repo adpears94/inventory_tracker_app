@@ -15,14 +15,11 @@ const getAllSubCategories = () => {
 const getAllItems = () => {
     return knex('item').select('*').whereNot('item_name', null);
 };
+//select item_name, item_description, category_name, sub_category_name, checked_out from item join category on category_id = category.id join sub_category on sub_category_id = sub_category.id;
 
 const getMasterInventory = () => {
     return knex('master_inventory').select('*').whereNot('item_id', null);
 };
-
-  
-
-
 
 
 
@@ -31,5 +28,7 @@ module.exports = {
     getAllCategories,
     getAllSubCategories,
     getAllItems,
-    getMasterInventory
+    getMasterInventory,
+    
+  
   };

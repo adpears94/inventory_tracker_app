@@ -2,16 +2,17 @@ import React from 'react';
 import {
   MDBFooter,
   MDBContainer,
-  MDBCol,
-  MDBRow,
   MDBIcon,
   MDBBtn,
 } from "mdb-react-ui-kit";
 
 export function Footer() {
   return (
-    <MDBFooter className="bg-light text-center text-white fixed-bottom">
-      <MDBContainer className="p-4 pb-0">
+    <MDBFooter
+      bgColor="primary"
+      className="text-center text-white position-sticky fixed-bottom"
+    >
+      <MDBContainer className="p-3 pb-0">
         <section className="mb-4">
           <MDBBtn
             floating
@@ -63,7 +64,7 @@ export function Footer() {
           </MDBBtn>
 
           <MDBBtn
-            floating
+            // floating
             className="m-1"
             style={{ backgroundColor: "#333333" }}
             href="https://github.com/gSchool"
@@ -76,9 +77,9 @@ export function Footer() {
 
       <div
         className="text-center p-3"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        style={{ backgroundColor: "rgb(26, 36, 92)" }}
       >
-        <span>©Galvanize, 2022:&nbsp;</span>
+        <span>©Galvanize 2022:&nbsp;</span>
         <a className="text-white" href="/">
           Inventory Tracker
         </a>
