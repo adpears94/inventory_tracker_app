@@ -47,6 +47,11 @@ const LinksContainer = styled.div`
   flex-wrap: wrap;
 `;
 
+function myFunction() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
+
 export const About = () => {
   return (
     <AboutDiv>
