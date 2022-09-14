@@ -53,25 +53,18 @@ export const About = () => {
       <MissionDiv className="mission">
         <Banner>Our Vision</Banner>
         <p style={{ fontSize: "20px", fontFamily: "Roboto-Flex" }}>
-          To create a virtual museum for the masses. Being able to view and
-          appreciate classical works of art can require a lot of travel and be a
-          very costly and prohibitive activity. During the COVID pandemic, these
-          restrictions were amplified by global lockdowns and travel
-          restrictions. Providing a virtual museum will allow global access in
-          an easy-to-use, cost-effective way even in the face of a global
-          pandemic.
+        As a unit supply manager, I need a system that can orderly track all items of inventory that are assigned to the base/squadron. This system needs to track all users who check out inventory as well as track the date it was assigned, with the ability to put a date of return. 
         </p>
         <Banner>Our Mission</Banner>
         <p style={{ fontSize: "20px", fontFamily: "Roboto-Flex" }}>
-          To provide access to more than 490,000 works—from around the world and
-          throughout history.
+          To provide access to a centralized enpoint that manages your unit's assets.
         </p>
       </MissionDiv>
 
-      <Container>
-        <DeveloperDiv className="developers">
+      <Container fluid>
+        <Row>
+          <Col>
           <Banner>Developers</Banner>
-          <CardContainer>
             <Card style={{ width: "15rem", height: "15rem" }}>
               <Card.Body>
                 <Card.Img
@@ -132,50 +125,54 @@ export const About = () => {
                 </Button>
               </Card.Body>
             </Card>
-          </CardContainer>
-        </DeveloperDiv>
+          </Col>
 
-        <LinksContainer className="links">
-          <Banner>Project Planning</Banner>
-          <CDBBox display="flex" justifyContent="around" alignContent="center">
-            <CDBBtn
-              href="https://github.com/jangoflyte/Project-3"
-              style={{ textDecoration: "none" }}
-              circle
-              outline
+          <Col>
+            <Banner>Project Planning</Banner>
+            <CDBBox
+              display="flex"
+              justifyContent="around"
+              alignContent="center"
             >
-              <CDBIcon fab icon="github" />
-              Github
-            </CDBBtn>
-            <CDBBtn
-              href="https://www.figma.com/file/1HjLFW5m19RylK1Kx0hKf9/Untitled?node-id=0%3A1"
-              style={{ textDecoration: "none" }}
-              circle
-              outline
-            >
-              {/* <CDBIcon fab icon="magic" /> */}
-              Figma
-            </CDBBtn>
-            <CDBBtn
-              href="https://docs.google.com/document/d/1hlCnAcFzcLfWCOGo9BSLi8VJD8x6sclpCxnRINSJyDo/edit"
-              style={{ textDecoration: "none" }}
-              circle
-              outline
-            >
-              <CDBIcon fab icon="google" />
-              Google Docs
-            </CDBBtn>
-            <CDBBtn
-              href="https://trello.com/b/CZnbSZrL/project-3 "
-              style={{ textDecoration: "none" }}
-              circle
-              outline
-            >
-              {/* <CDBIcon fab icon="users" /> */}
-              Trello
-            </CDBBtn>
-          </CDBBox>
-        </LinksContainer>
+              <CDBBtn
+                href="https://github.com/jangoflyte/Project-3"
+                style={{ textDecoration: "none" }}
+                circle
+                outline
+              >
+                <CDBIcon fab icon="github" />
+                Github
+              </CDBBtn>
+              <CDBBtn
+                href="https://www.figma.com/file/1HjLFW5m19RylK1Kx0hKf9/Untitled?node-id=0%3A1"
+                style={{ textDecoration: "none" }}
+                circle
+                outline
+              >
+                {/* <CDBIcon fab icon="magic" /> */}
+                Figma
+              </CDBBtn>
+              <CDBBtn
+                href="https://docs.google.com/document/d/1hlCnAcFzcLfWCOGo9BSLi8VJD8x6sclpCxnRINSJyDo/edit"
+                style={{ textDecoration: "none" }}
+                circle
+                outline
+              >
+                <CDBIcon fab icon="google" />
+                Google Docs
+              </CDBBtn>
+              <CDBBtn
+                href="https://trello.com/b/CZnbSZrL/project-3 "
+                style={{ textDecoration: "none" }}
+                circle
+                outline
+              >
+                {/* <CDBIcon fab icon="users" /> */}
+                Trello
+              </CDBBtn>
+            </CDBBox>
+          </Col>
+        </Row>
       </Container>
     </AboutDiv>
   );
