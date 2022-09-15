@@ -67,5 +67,5 @@ body {
 
 }
 .table{
-  overflow-y: scroll;
+  overflow-y: auto;
 }
