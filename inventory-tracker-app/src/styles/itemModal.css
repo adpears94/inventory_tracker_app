@@ -1,0 +1,31 @@
+.autoBoxRollOut{
+    background: rgba(240, 233, 233, 0.192);
+    width: 100%;
+    max-height: 20%;
+    overflow-y: auto;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 0px;
+   
+}
+
+.autoBoxRollOut :hover{
+    background:#2e1fff2c;
+    color:rgba(240, 233, 233 );
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.dataResult {
+    color: #070707ef;
+    text-decoration: none;
+    list-style: none;
+    cursor: default;
+    border-radius: 3px;
+}
+
+a:link, :hover, :visited, :active{
+    text-decoration: none;  
+}

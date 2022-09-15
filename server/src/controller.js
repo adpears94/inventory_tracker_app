@@ -21,6 +21,7 @@ const getMasterInventory = () => {
 };
 
 //select item_name, item_description, category_name, sub_category_name, checked_out from item join category on category_id = category.id join sub_category on sub_category_id = sub_category.id;
+//select item.id, item_name, item_description, category_name, sub_category_name, checked_out, user_name, users.id from item join category on category_id = category.id join sub_category on sub_category_id = sub_category.id join users on user_id = users.id;
 // db = inventory_project_3
 // const posts = await db('posts')
 //   .join('users', 'users.id', 'posts.user_id')
@@ -41,7 +42,7 @@ const getMasterInventory = () => {
 
 const itemsWithUsers = () => {
     return knex
-      .select('item.id','item_name', 'item_description', 'category_name', 'sub_category_name', 'checked_out', 'user_name')
+      .select('item.id','item_name', 'item_description', 'category_name', 'sub_category_name', 'checked_out', 'user_name', 'users.id as user_id')
       .from("item")
       .join("category", {"category_id": "category.id"})
       .join("sub_category", {"sub_category_id": "sub_category.id"})

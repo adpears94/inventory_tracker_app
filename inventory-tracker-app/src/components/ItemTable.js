@@ -49,7 +49,7 @@ export function ItemTable({items}) {
                 <td>{item.category_name}</td>
                 <td>{item.sub_category_name}</td>
                 <td>{item.checked_out === false ? 'no' : 'yes'}</td>
-                <td>{item.user_name}</td>
+                <td>{item.user_id === 1 ? '' : item.user_name}</td>
               </tr>
             );
           })}

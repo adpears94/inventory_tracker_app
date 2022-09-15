@@ -16,6 +16,18 @@ export const InventoryContext = React.createContext();
 const App = () => {
   const [allItems, SetAllItems] = useState([]);
   const [toggle, setToggle] = useState(false);  
+  const [allUsers, setAllUsers] = useState([]);
+  
+  useEffect(() => {
+    fetch("http://localhost:8080/users")
+    .then((res) => {
+      if (res.ok) {
+        return res.json()      
+      }      
+    })
+    .then((data) => {setAllUsers(data)})
+    .then(console.log('im fetching users'))
+  }, []); 
 
   useEffect(() => {
     fetch("http://localhost:8080/itemswithusers")
@@ -23,14 +35,13 @@ const App = () => {
       if (res.ok) {
         setToggle(true)
         return res.json() 
-        
       }      
     })
     .then((data) => {SetAllItems(data)})
-    .then(console.log('im fetching some stuff'))
+    .then(console.log('im fetching items with users'))
   }, []); 
 
-  const obj = { toggle, setToggle, allItems, SetAllItems };
+  const obj = { toggle, setToggle, allItems, SetAllItems, allUsers, setAllUsers };
 
   return (
     <InventoryContext.Provider value={obj}>
@@ -43,7 +54,7 @@ const App = () => {
         <Route path="/resources" element={<Resources />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </InventoryContext.Provider>
   );
 }

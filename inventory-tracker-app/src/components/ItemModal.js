@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { InventoryContext } from '../App';
+import "../styles/itemModal.css";
 
 export function ItemModal(props) {
   const [itemName, setItemName] = useState();
@@ -8,6 +10,8 @@ export function ItemModal(props) {
   const [itemDescription, setItemDescription] = useState();
   const [category, setCategory] = useState();
   const [subCategory, setSubCategory] = useState();
+  const [filteredNames, setFilteredNames] = useState([]);
+  const {allUsers} = useContext(InventoryContext);
     
     const handleSubmit = () => {
       fetch('http://localhost:8080/items', {
@@ -27,6 +31,24 @@ export function ItemModal(props) {
         .then((data) => console.log(data), alert('Item added! Please refresh the page to see the new item.'))
         .catch((error) => alert('Cannot add item'));
     };
+
+    const handleFilter = (event) => {
+      const searchWord = event.target.value;
+      console.log(searchWord);
+      if (searchWord.length !== 0) {
+        const newFilter = allUsers.filter((item) => {
+          return item.user_name.toLowerCase().includes(searchWord.toLowerCase());
+        });
+        setFilteredNames(newFilter);
+      } else {
+        setFilteredNames([]);
+      }
+    };
+
+    function changeUserName() {
+      var txt = 'type user name';
+      document.getElementById('user_id').value = txt;
+    }
   
 
 
@@ -51,11 +73,31 @@ export function ItemModal(props) {
         <br></br>
         <label htmlFor="user_id">Username:</label>{'\u00A0'}{'\u00A0'}
         <input
-          type="number"
+          type="text"
           id="user_id"
           name="user_id"
-          onChange={(e) => setUserName(e.target.value)}
-        ></input>
+          onChange={ handleFilter}
+        />
+        <div className="autoBoxRollOut">
+                {filteredNames.map((data) => {
+                  return (
+                    <li key={data.id} className="dataResult">
+                      <div className="dataResult">
+                        {data.user_name}
+                        <p onClick={changeUserName}>
+                        {/* <p onClick={() => setUserName(data)}> */}
+                          {data.fullName}
+                          {console.log(userName)}
+                        </p>
+                      </div>
+                    </li>
+                  );
+                })}
+        </div>
+
+
+
+
         <br></br>
         <label htmlFor="item_description">Item Description:</label>{'\u00A0'}{'\u00A0'}
         <textarea style={{paddingTop: '2px'}}

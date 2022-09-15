@@ -35,10 +35,7 @@ width: 16px;
 
 const Banner = () => {
     const {toggle} = useContext(InventoryContext);
-
-    
-
-
+    const [name, setName] = useState("Rick")
     
 
 return (
@@ -55,7 +52,7 @@ return (
     )}
     
 
-    <StyledWelcome>Welcome, Rick</StyledWelcome>
+    <StyledWelcome>Welcome, {name}</StyledWelcome>
   </StyledBanner>
 );
 }

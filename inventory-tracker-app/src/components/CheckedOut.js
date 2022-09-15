@@ -22,7 +22,7 @@ export function CheckedOut({ items }) {
         <tbody>
           {items.map((item) => {
             console.log(item.checked_out)
-            return item.checked_out === true ? (
+            return (item.checked_out === true && item.user_id !== 1) ? (
               <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.item_name}</td>
