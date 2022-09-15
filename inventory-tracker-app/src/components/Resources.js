@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-
+const writeFileP = require("write-file-p");
 
 const StyledA = styled.a`
     text-decoration: none;
@@ -17,7 +17,9 @@ export const Resources = () => {
     const [data, setData] = useState('')
     console.log(data)
 
+    const handleSubmit = () => {
 
+    }
 
     
 
@@ -100,10 +102,10 @@ export const Resources = () => {
                     style={{ height: "20%" }}
                     rows="15"
                     cols="40"
-                    // onChange={setData}
+                    onChange={setData}
                   />
                 </InputGroup>
-                <Button style={{ marginTop: "20px" }} onClick={setData}>
+                <Button style={{ marginTop: "20px" }} onClick={handleSubmit}>
                   Save Grocery List
                 </Button>
               </Form>

@@ -66,3 +66,6 @@ body {
     bottom: 0;
 
 }
+.table{
+  overflow-y: scroll;
+}
