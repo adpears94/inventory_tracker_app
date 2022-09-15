@@ -4,10 +4,12 @@ import ColoredNavbar from "./components/ColoredNavbar";
 import Banner from "./components/Banner";
 import { Footer } from "./components/Footer";
 import { About } from "./components/About";
-import SmallExample from "./components/ItemTable";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {ItemTable} from "./components/ItemTable";
+import SplashPage from "./components/SplashPage";
 import "./App.css";
+import { CheckedOut } from "./components/CheckedOut";
+import { Resources } from "./components/Resources";
 
 export const InventoryContext = React.createContext();
 
@@ -16,7 +18,7 @@ const App = () => {
   const [toggle, setToggle] = useState(false);  
 
   useEffect(() => {
-    fetch("http://localhost:8080/items")
+    fetch("http://localhost:8080/itemswithusers")
     .then((res) => {
       if (res.ok) {
         setToggle(true)
@@ -25,6 +27,7 @@ const App = () => {
       }      
     })
     .then((data) => {SetAllItems(data)})
+    .then(console.log('im fetching some stuff'))
   }, []); 
 
   const obj = { toggle, setToggle, allItems, SetAllItems };
@@ -34,11 +37,13 @@ const App = () => {
       <Banner />
       <ColoredNavbar />
       <Routes>
-        <Route path="/" element={<h1>Hello :)</h1>} />
-        <Route path="/items" element = {<ItemTable items={allItems} /> } />
+        <Route path="/" element={<SplashPage />} />
+        <Route path="/items" element={<ItemTable items={allItems} />} />
+        <Route path="/checkedout" element={<CheckedOut items={allItems} />} />
+        <Route path="/resources" element={<Resources />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </InventoryContext.Provider>
   );
 }

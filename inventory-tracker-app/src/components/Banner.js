@@ -55,7 +55,7 @@ return (
     )}
     
 
-    <StyledWelcome>Welcome Rick</StyledWelcome>
+    <StyledWelcome>Welcome, Rick</StyledWelcome>
   </StyledBanner>
 );
 }

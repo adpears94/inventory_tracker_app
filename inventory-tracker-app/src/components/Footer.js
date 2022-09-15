@@ -5,12 +5,14 @@ import {
   MDBIcon,
   MDBBtn,
 } from "mdb-react-ui-kit";
+import '../App.css'
 
 export function Footer() {
   return (
     <MDBFooter
       bgColor="primary"
       className="text-center text-white position-sticky fixed-bottom"
+      
     >
       <MDBContainer className="p-3 pb-0">
         <section className="mb-4">

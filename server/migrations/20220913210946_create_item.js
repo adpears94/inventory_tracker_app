@@ -5,6 +5,8 @@
 exports.up = function (knex) {
   return knex.schema.createTable("item", (table) => {
     table.increments("id");
+    table.integer("user_id");
+    table.foreign("user_id").references("users.id");
     table.string("item_name");
     table.string("item_description");
     table.integer("category_id");
@@ -12,6 +14,8 @@ exports.up = function (knex) {
     table.integer("sub_category_id");
     table.foreign("sub_category_id").references("sub_category.id");
     table.boolean("checked_out").defaultTo(false);
+    table.timestamp("check_out").defaultTo(null);
+    table.timestamp("check_in").defaultTo(null);
   });
 };
 

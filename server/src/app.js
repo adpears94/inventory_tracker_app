@@ -7,9 +7,11 @@ const {
     getAllSubCategories,
     getAllItems,
     getMasterInventory,
+    itemsWithUsers
     
     
 } = require('./controller.js');
+
 const app = express();
 const cors = require("cors"); 
 app.use(express.json());
@@ -43,8 +45,20 @@ app.get('/items', (req, res) => {
         .catch(err => res.status(500).send(err));
   });
 
+app.get('/items/:id', (req, res) => {
+    return knex('item').select('*').where('id', '=', req.params.id)
+        .then(data => res.json(data))
+        .catch(err => res.status(500).send(err));
+  });
+
 app.get('/master', (req, res) => {
     getMasterInventory()
+        .then(data => res.json(data))
+        .catch(err => res.status(500).send(err));
+  });
+
+app.get('/itemswithusers', (req, res) => {
+    itemsWithUsers()
         .then(data => res.json(data))
         .catch(err => res.status(500).send(err));
   });
@@ -55,16 +69,19 @@ app.post('/users', (req, res) => {
     .catch(err => res.status(500).send(err));
     
 })
+
 app.post('/category', (req, res) => {
     return knex('category').insert(req.body)
     .then(data => res.send({message: "We have posted a category."}))
     .catch(err => res.status(500).send(err));
 })
+
 app.post('/subcategory', (req, res) => {
     return knex('sub_category').insert(req.body)
     .then(data => res.send({message: "We have posted a subcategory."}))
     .catch(err => res.status(500).send(err));
 })
+
 app.post('/items', (req, res) => {
     return knex('item').insert(req.body)
     .then(data => res.send({message: "We have posted an item."}))
@@ -77,8 +94,8 @@ app.patch('/users/:user_name', (req, res) => {
     .catch(err => res.status(500).send(err));
 })
 
-app.patch('/items/:item_name', (req, res) => {
-    return knex('item').where('item_name', req.params.item_name).update(req.body)
+app.patch('/items/:id', (req, res) => {
+    return knex('item').where('id', '=', req.params.id).update(req.body)
     .then(data => res.send({message: "We have updated the item."}))
     .catch(err => res.status(500).send(err));
 })
@@ -108,7 +125,9 @@ app.delete('/users/:id', (req, res) => {
         //   message: "This user does not exist! Try again.",
 
       );
-})// app.post('/users', (req, res) => {
+});
+
+// app.post('/users', (req, res) => {
 //     postUsers(req.body)
 //         .then(data => res.json(data))
 //         .catch(err => res.status(500).send(err));

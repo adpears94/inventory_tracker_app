@@ -1,30 +1,11 @@
-import React, {useContext} from 'react';
-import Table from 'react-bootstrap/Table';
-import styled from 'styled-components';
-import { ItemModal } from './ItemModal.js';
-import { InventoryContext } from '../App';
-import "../App.css";
-import DisplayModal from './ItemModal.js';
+import Table from "react-bootstrap/Table";
+import styled from "styled-components";
 
 const TableHeader = styled.thead`
   text-align: center;
-`
+`;
 
-export function ItemTable({items}) {
-  const { allItems } = useContext(InventoryContext);
-
-  if (allItems.length === 0) {
-    return(
-      <div className="lds-ripple">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
-    );
-
-  } else {
-
+export function CheckedOut({ items }) {
   return (
     <>
       <Table striped bordered hover size="sm">
@@ -35,29 +16,25 @@ export function ItemTable({items}) {
             <th>Description</th>
             <th>Category</th>
             <th>Sub Category</th>
-            <th>Checked Out</th>
             <th>Assigned To</th>
           </tr>
         </TableHeader>
         <tbody>
           {items.map((item) => {
-            return (
+            console.log(item.checked_out)
+            return item.checked_out === true ? (
               <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.item_name}</td>
                 <td>{item.item_description}</td>
                 <td>{item.category_name}</td>
                 <td>{item.sub_category_name}</td>
-                <td>{item.checked_out === false ? 'no' : 'yes'}</td>
                 <td>{item.user_name}</td>
               </tr>
-            );
+            ) : null;
           })}
         </tbody>
       </Table>
-      <DisplayModal/>
     </>
   );
-}
-
 }

@@ -15,13 +15,44 @@ const getAllSubCategories = () => {
 const getAllItems = () => {
     return knex('item').select('*').whereNot('item_name', null);
 };
-//select item_name, item_description, category_name, sub_category_name, checked_out from item join category on category_id = category.id join sub_category on sub_category_id = sub_category.id;
 
 const getMasterInventory = () => {
     return knex('master_inventory').select('*').whereNot('item_id', null);
 };
 
+//select item_name, item_description, category_name, sub_category_name, checked_out from item join category on category_id = category.id join sub_category on sub_category_id = sub_category.id;
+// db = inventory_project_3
+// const posts = await db('posts')
+//   .join('users', 'users.id', 'posts.user_id')
+//   .select('posts.id', 'users.username', 'posts.contents')
+//   .where({user_id: id})
 
+// const itemsWithUsers = () => {
+//     return knex('users')
+//     .join('category', 'category_id', '=', 'users.category.id')
+//     .select('item_name', 'item_description', 'category_name', 'sub_category_name', 'checked_out')
+// }
+
+// const joinedTable = () => {
+    // return knex('users')
+    // .join('category', 'category_id', '=', 'users.category.id)
+    // .select('item_name', 'item_description', 'category_name', 'sub_category_name', 'checked_out')
+// }
+
+const itemsWithUsers = () => {
+    return knex
+      .select('item.id','item_name', 'item_description', 'category_name', 'sub_category_name', 'checked_out', 'user_name')
+      .from("item")
+      .join("category", {"category_id": "category.id"})
+      .join("sub_category", {"sub_category_id": "sub_category.id"})
+      .join('users', {"user_id": "users.id"})
+      .orderBy('item.id', 'asc')
+    //   .join("sub_category_id", "=", "sub_category.id");
+}
+
+
+
+    //knex.select
 
 module.exports = {
     getAllUsers,
@@ -29,6 +60,7 @@ module.exports = {
     getAllSubCategories,
     getAllItems,
     getMasterInventory,
+    itemsWithUsers
     
   
   };
