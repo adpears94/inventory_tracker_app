@@ -11,7 +11,7 @@ const AboutDiv = styled.div`
   background-color: white;
 `;
 const Banner = styled.h1`
-  text-align: center;
+  /* text-align: center; */
   margin-bottom: 30px;
   font-family: "Roboto-Flex";
 `;
@@ -81,7 +81,12 @@ export const About = () => {
                   style={{ width: "120px" }}
                 />
                 <Card.Title>Miguel Castro</Card.Title>
-                <Button variant="primary" href="https://github.com/jangoflyte">
+                <Button
+                  variant="primary"
+                  href="https://github.com/jangoflyte"
+                  target="_blank"
+                  rel="noopener"
+                >
                   Github
                 </Button>
               </Card.Body>
@@ -95,7 +100,12 @@ export const About = () => {
                   style={{ width: "120px" }}
                 />
                 <Card.Title>Avery Pears</Card.Title>
-                <Button variant="primary" href="https://github.com/adpears94">
+                <Button
+                  variant="primary"
+                  href="https://github.com/adpears94"
+                  target="_blank"
+                  rel="noopener"
+                >
                   Github
                 </Button>
               </Card.Body>
@@ -112,7 +122,12 @@ export const About = () => {
                   style={{ width: "120px" }}
                 />
                 <Card.Title>Mark Scarna</Card.Title>
-                <Button variant="primary" href="https://github.com/markscarna">
+                <Button
+                  variant="primary"
+                  href="https://github.com/markscarna"
+                  target="_blank"
+                  rel="noopener"
+                >
                   Github
                 </Button>
               </Card.Body>
@@ -129,6 +144,8 @@ export const About = () => {
                 <Button
                   variant="primary"
                   href="https://github.com/nicksexton13"
+                  target="_blank"
+                  rel="noopener"
                 >
                   Github
                 </Button>
@@ -148,6 +165,8 @@ export const About = () => {
                 style={{ textDecoration: "none" }}
                 circle
                 outline
+                target="_blank"
+                rel="noopener"
               >
                 <CDBIcon fab icon="github" />
                 Github
@@ -157,6 +176,8 @@ export const About = () => {
                 style={{ textDecoration: "none" }}
                 circle
                 outline
+                target="_blank"
+                rel="noopener"
               >
                 {/* <CDBIcon fab icon="magic" /> */}
                 Figma
@@ -166,6 +187,8 @@ export const About = () => {
                 style={{ textDecoration: "none" }}
                 circle
                 outline
+                target="_blank"
+                rel="noopener"
               >
                 <CDBIcon fab icon="google" />
                 Google Docs
@@ -175,6 +198,8 @@ export const About = () => {
                 style={{ textDecoration: "none" }}
                 circle
                 outline
+                target="_blank"
+                rel="noopener"
               >
                 {/* <CDBIcon fab icon="users" /> */}
                 Trello

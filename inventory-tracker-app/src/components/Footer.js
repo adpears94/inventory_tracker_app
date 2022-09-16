@@ -12,7 +12,6 @@ export function Footer() {
     <MDBFooter
       bgColor="primary"
       className="text-center text-white position-sticky fixed-bottom mt-5"
-      
     >
       <MDBContainer className="p-3 pb-0">
         <section className="mb-4">
@@ -22,6 +21,8 @@ export function Footer() {
             style={{ backgroundColor: "#3b5998" }}
             href="https://www.facebook.com/GalvanizeHQ/"
             role="button"
+            target="_blank"
+            rel="noopener"
           >
             <MDBIcon fab icon="facebook-f" />
           </MDBBtn>
@@ -32,6 +33,8 @@ export function Footer() {
             style={{ backgroundColor: "#55acee" }}
             href="https://twitter.com/galvanize?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
             role="button"
+            target="_blank"
+            rel="noopener"
           >
             <MDBIcon fab icon="twitter" />
           </MDBBtn>
@@ -42,6 +45,8 @@ export function Footer() {
             style={{ backgroundColor: "#dd4b39" }}
             href="https://www.galvanize.com/"
             role="button"
+            target="_blank"
+            rel="noopener"
           >
             <MDBIcon fab icon="google" />
           </MDBBtn>
@@ -51,6 +56,8 @@ export function Footer() {
             style={{ backgroundColor: "#ac2bac" }}
             href="https://www.instagram.com/galvanizehq/?hl=en"
             role="button"
+            target="_blank"
+            rel="noopener"
           >
             <MDBIcon fab icon="instagram" />
           </MDBBtn>
@@ -61,6 +68,8 @@ export function Footer() {
             style={{ backgroundColor: "#0082ca" }}
             href="https://www.linkedin.com/school/galvanize-it/"
             role="button"
+            target="_blank"
+            rel="noopener"
           >
             <MDBIcon fab icon="linkedin-in" />
           </MDBBtn>
@@ -71,6 +80,8 @@ export function Footer() {
             style={{ backgroundColor: "#333333" }}
             href="https://github.com/gSchool"
             role="button"
+            target="_blank"
+            rel="noopener"
           >
             <MDBIcon fab icon="github" />
           </MDBBtn>

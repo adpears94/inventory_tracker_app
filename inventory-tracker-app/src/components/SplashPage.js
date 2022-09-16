@@ -34,7 +34,7 @@ function SplashPage() {
     } else if (e.target.value === "Patrick AFB") {
       setBaseImg("./images/spd6.png");
     } else if (e.target.value === "Schriever AFB") {
-      setBaseImg("./images/sld45.png");
+      setBaseImg("./images/schriever sfb.png");
     }
   };
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import ColoredNavbar from "./components/ColoredNavbar";
 import Banner from "./components/Banner";

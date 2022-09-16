@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import Table from 'react-bootstrap/Table';
 import styled from 'styled-components';
-import { ItemModal } from './ItemModal.js';
 import { InventoryContext } from '../App';
 import "../App.css";
 import DisplayModal from './ItemModal.js';
