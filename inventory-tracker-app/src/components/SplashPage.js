@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import { StyledImgLeft, StyledImgRight } from "./Styles";
-import pdf from "../../src/af1297.pdf";
+// import pdf from "../../src/af1297.pdf";
 
 function SplashPage() {
   const [username, setUsername] = useState("");

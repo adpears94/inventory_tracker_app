@@ -8,6 +8,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 // const writeFileP = require("write-file-p");
+// import pdf from "/assets/af1297.pdf";
+
 
 const StyledA = styled.a`
     text-decoration: none;
@@ -22,40 +24,62 @@ export const Resources = () => {
     }
 
     
-
     return (
       <Container fluid>
-        <Card>
-          <p>
-            Need some tips on tracking inventory? Checkout these useful
-            resources.
-          </p>
-          <Card.Body>
-            <Card.Img
-              src="/images/inventory-tracking.jpeg"
-              alt="inventory_image"
-              style={{ width: "400px", height: "200px" }}
-            />
-            <Card.Title>
-              <StyledA href="https://www.netsuite.com/portal/resource/articles/inventory-management/inventory-tracking.shtml">
-                Inventory Tracking Simplified: Steps, Methods and Efficiency
-                Tips
-              </StyledA>
-            </Card.Title>
-          </Card.Body>
-          <Card.Body>
-            <Card.Img
-              src="https://gtpac.org/wp-content/uploads/2014/06/GSA-logo.png"
-              alt="gsa_image"
-              style={{ width: "400px", height: "200px" }}
-            />
-            <Card.Title>
-              <StyledA href="https://www.gsa.gov/">
-                U.S. General Services Administration
-              </StyledA>
-            </Card.Title>
-          </Card.Body>
-        </Card>
+        <Row>
+          <Col>
+            <Card>
+              <p>
+                Need some tips on tracking inventory? Checkout these useful
+                resources.
+              </p>
+              <Card.Body>
+                <Card.Img
+                  src="/images/inventory-tracking.jpeg"
+                  alt="inventory_image"
+                  style={{ width: "400px", height: "200px" }}
+                />
+                <Card.Title>
+                  <StyledA href="https://www.netsuite.com/portal/resource/articles/inventory-management/inventory-tracking.shtml">
+                    Inventory Tracking Simplified: Steps, Methods and Efficiency
+                    Tips
+                  </StyledA>
+                </Card.Title>
+              </Card.Body>
+              <Card.Body>
+                <Card.Img
+                  src="https://gtpac.org/wp-content/uploads/2014/06/GSA-logo.png"
+                  alt="gsa_image"
+                  style={{ width: "400px", height: "200px" }}
+                />
+                <Card.Title>
+                  <StyledA href="https://www.gsa.gov/">
+                    U.S. General Services Administration
+                  </StyledA>
+                </Card.Title>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card>
+              <p>
+                Below is the AF1927. Click{"\u00A0"}
+                <a href="/assets/af1297.pdf">Download</a>
+                {"\u00A0"}
+                to have it handy! Can only be accessed a GOV NIPR.
+              </p>
+              <Card.Img
+                src="./images/1297.png"
+                alt="1297"
+                style={{
+                  width: "40rem",
+                  height: "40rem",
+                }}
+              />
+            </Card>
+          </Col>
+        </Row>
+
         <Row>
           <Col>
             <Card>
