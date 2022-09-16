@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-const writeFileP = require("write-file-p");
+// const writeFileP = require("write-file-p");
 
 const StyledA = styled.a`
     text-decoration: none;
