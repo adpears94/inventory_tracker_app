@@ -60,6 +60,7 @@ function SplashPage() {
               placeholder="Enter Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              className="username"
             />
           </Form.Group>
           <Form.Group className="mb-3">
@@ -70,11 +71,12 @@ function SplashPage() {
                 setBase(e.target.value);
                 imagePickerBase(e);
               }}
+              className="base"
             >
               <option disabled selected>
                 Choose One
               </option>
-              <option>Schriever AFB</option>
+              <option>Schriever SFB</option>
               <option>Scott AFB</option>
               <option>Patrick AFB</option>
             </Form.Select>
@@ -87,6 +89,7 @@ function SplashPage() {
                 setSquadron(e.target.value);
                 imagePickerSquadron(e);
               }}
+              className="squadron"
             >
               <option disabled selected>
                 Choose One
@@ -96,7 +99,7 @@ function SplashPage() {
               <option>45 SFS</option>
             </Form.Select>
           </Form.Group>
-          <Button type="submit" onClick={() => handleSubmit()}>
+          <Button className="button" type="submit" onClick={() => handleSubmit()}>
             Submit
           </Button>
         </fieldset>

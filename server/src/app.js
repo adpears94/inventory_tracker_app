@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const knex = require('knex')(
     require('../knexfile.js')[process.env.NODE_ENV || 'development']);
 const {
@@ -17,9 +18,9 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => {
-    res.status(200).send('Hello, world');
-})
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "/endpoints.html"));
+});
 
 app.get('/users', (req, res) => {
     getAllUsers()
@@ -127,6 +128,22 @@ app.delete('/users/:id', (req, res) => {
       );
 });
 
+app.delete('/items/:id', (req, res) => {
+    const {id} = req.params;
+    knex.raw("TRUNCATE items CASCADE");
+    knex("item")
+    //   .where("id", "==", parseInt(id))
+      .where({ id: id })
+      .del()
+      .then(() => res.status(200).send("deleted"))
+      .catch((err) =>
+        res.status(404).send(err)
+        //   message: "This user does not exist! Try again.",
+
+      );
+});
+
+
 // app.post('/users', (req, res) => {
 //     postUsers(req.body)
 //         .then(data => res.json(data))
@@ -134,7 +151,7 @@ app.delete('/users/:id', (req, res) => {
 //     });
   
 app.all('*', (req, res) => {
-    res.status(400).send('<h1>Endpoint does not exist :(</h1>')
+    res.status(400).send(`<h1>Endpoint does not exist :(</h1>`);
 });
 
 

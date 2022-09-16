@@ -4,10 +4,14 @@ import styled from "styled-components";
 const TableHeader = styled.thead`
   text-align: center;
 `;
+const StyledDiv = styled.div`
+  height: 100vh;
+  margin-bottom: 15%;
+`;
 
 export function CheckedOut({ items }) {
   return (
-    <>
+    <StyledDiv>
       <Table striped bordered hover size="sm">
         <TableHeader>
           <tr>
@@ -35,6 +39,6 @@ export function CheckedOut({ items }) {
           })}
         </tbody>
       </Table>
-    </>
+    </StyledDiv>
   );
 }

@@ -7,10 +7,6 @@ body {
     flex-direction: column;
     min-height: 100%;
 }
-.dark-mode {
-    background-color: black;
-    color: white;
-  }
 
   .lds-ripple {
     display: inline-block;
@@ -66,6 +62,12 @@ body {
     bottom: 0;
 
 }
-.table{
-  overflow-y: auto;
+.table{  
+  display: table; 
+  height: 70%;
+  border-spacing: 10px;
+  overflow: hidden;
+  
+ 
+  overflow: hidden;
 }

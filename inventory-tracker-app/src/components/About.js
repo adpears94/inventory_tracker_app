@@ -8,7 +8,8 @@ import Col from "react-bootstrap/Col";
 import { CDBBtn, CDBIcon, CDBBox } from "cdbreact";
 
 const AboutDiv = styled.div`
-  background-color: white;
+  height: 100vh;
+  margin-bottom: 15%;
 `;
 const Banner = styled.h1`
   /* text-align: center; */
@@ -47,8 +48,6 @@ const LinksContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
-
-
 
 export const About = () => {
   return (

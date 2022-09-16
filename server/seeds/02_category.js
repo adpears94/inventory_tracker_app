@@ -6,9 +6,9 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex.schema.raw("TRUNCATE category CASCADE");
   await knex('category').del()
-  await knex('category').insert([
-    {category_name: 'technology'},
-    {category_name: 'furniture'},
-    {category_name: 'vehicles'},
+  await knex("category").insert([
+    { id: 1, category_name: "technology" },
+    { id: 2, category_name: "furniture" },
+    { id: 3, category_name: "vehicles" },
   ]);
 };

@@ -5,7 +5,7 @@
 exports.up = function(knex) {
     return knex.schema.createTable('users', table => {
         table.increments('id');
-        table.string('user_name');
+        table.string('user_name').primary().defaultTo('no name');
         table.string('squadron');
         table.string('base');
     })

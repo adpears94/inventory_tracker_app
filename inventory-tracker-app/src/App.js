@@ -15,9 +15,13 @@ import { StyledBox } from "./components/Styles";
 export const InventoryContext = React.createContext();
 
 const App = () => {
-  const [allItems, SetAllItems] = useState([]);
+  const [allItems, setAllItems] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [allUsers, setAllUsers] = useState([]);
+  const [stateTracker, setStateTracker] = useState(false);
+  // const [darkMode, setDarkMode] = useState("#202d73");
+ 
+  
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
@@ -41,18 +45,20 @@ const App = () => {
         }
       })
       .then((data) => {
-        SetAllItems(data);
+        setAllItems(data);
       })
       .then(console.log("im fetching items with users"));
-  }, []);
+  }, [stateTracker]);
 
   const obj = {
     toggle,
     setToggle,
     allItems,
-    SetAllItems,
+    setAllItems,
     allUsers,
     setAllUsers,
+    stateTracker,
+    setStateTracker
   };
 
   return (

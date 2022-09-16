@@ -8,7 +8,7 @@ exports.seed = async function(knex) {
   await knex.schema.raw('TRUNCATE users CASCADE');
   await knex('users').del();
   await knex('users').insert([
-    {user_name: 'nobody', squadron: 'none', base: 'none'},
+    {user_name: 'no name', squadron: 'none', base: 'none'},
     {user_name: 'markscarna', squadron: '375th CSPTS', base: 'Scott AFB'},
     {user_name: 'miguelcastro22', squadron: '2 SOPS', base: 'Schriever SFB'},
     {user_name: 'averypp91', squadron: '45 SFS', base: 'Patrick SFB'},

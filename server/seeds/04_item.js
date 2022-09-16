@@ -6,13 +6,57 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex.schema.raw("TRUNCATE item CASCADE");
   await knex('item').del()
-  await knex('item').insert([
-    /*1*/ {item_name: 'MacBook Pro', user_id: '1', item_description: 'Silver 13in MacBook Pro', category_id: 1 , sub_category_id: 2},
-    /*2*/ {item_name: 'Dell Display 27', user_id: '1', item_description: 'Black Dell 27in Display', category_id: 1 , sub_category_id: 1},
-    /*3*/ {item_name: 'Chevrolet Impala',  user_id: '1', item_description: '2021 Blue Chevrolet Impala', category_id: 3 , sub_category_id: 9},
-    /*4*/ {item_name: 'Razr Keyboard', user_id: '1',  item_description: 'Green Razr Keyboard', category_id: 1 , sub_category_id: 4},
-    /*5*/ {item_name: 'Xerox VersaLink C405',  user_id: '1', item_description: 'Network Laser Printer', category_id: 1 , sub_category_id: 5},
-    /*6*/ {item_name: 'La-Z-boy Couch',  user_id: '1', item_description: 'A yellow couch', category_id: 2, sub_category_id: 5, checked_out: true},
-    /*7*/ {item_name: 'Recliner',  user_id: '1', item_description: 'Brown leather recliner', category_id: 2, sub_category_id: 6, checked_out: true},
+  await knex("item").insert([
+    /*1*/ {
+      item_name: "MacBook Pro",
+      user_name: "markscarna",
+      item_description: "Silver 13in MacBook Pro",
+      category_id: 1,
+      sub_category_id: 2,
+    },
+    /*2*/ {
+      item_name: "Dell Display 27",
+      user_name: "markscarna",
+      item_description: "Black Dell 27in Display",
+      category_id: 1,
+      sub_category_id: 1,
+    },
+    /*3*/ {
+      item_name: "Chevrolet Impala",
+      user_name: "markscarna",
+      item_description: "2021 Blue Chevrolet Impala",
+      category_id: 3,
+      sub_category_id: 9,
+    },
+    /*4*/ {
+      item_name: "Razr Keyboard",
+      user_name: "markscarna",
+      item_description: "Green Razr Keyboard",
+      category_id: 1,
+      sub_category_id: 4,
+    },
+    /*5*/ {
+      item_name: "Xerox VersaLink C405",
+      user_name: "markscarna",
+      item_description: "Network Laser Printer",
+      category_id: 1,
+      sub_category_id: 5,
+    },
+    /*6*/ {
+      item_name: "La-Z-boy Couch",
+      user_name: "markscarna",
+      item_description: "A yellow couch",
+      category_id: 2,
+      sub_category_id: 5,
+      checked_out: true,
+    },
+    /*7*/ {
+      item_name: "Recliner",
+      user_name: "markscarna",
+      item_description: "Brown leather recliner",
+      category_id: 2,
+      sub_category_id: 6,
+      checked_out: true,
+    },
   ]);
 };

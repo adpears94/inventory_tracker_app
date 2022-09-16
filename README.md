@@ -17,5 +17,26 @@ https://docs.google.com/presentation/d/14de-_tFoO-i9lwFASVCFwJrv8dL-kcsG4ccOv8_r
 
 ## Installation:
 
+### Database
+1. Ensure that you have installed postgres in a Docker container and psql inside the postgres image
+2. Install the database by importing the sql file in postgres from the path specified by running:
+`docker cp path/Project-3/server/inventory.sql <container id>:/tmp/inventory.sql`
+3. A database can also be manually made inside psql by running the query:
+`CREATE DATABASE inventory_project_3`
+4. Ensure knex migrations and seeds are run by running the following commands:
+`cd server`
+`npx knex migrate:latest`
+`npx knex seed:run`
 
-## Packages and Dependencies
+### Server
+1. To spin up the server, ensure all dependencies are installed
+`cd server`
+`npm i`
+2. Run the server by: `npm start`
+
+### Front End
+1. To spin up the front end ensure all dependencies are installed
+`cd inventory-tracker-app`
+`npm i`
+2. Run the server by: `npm start`
+

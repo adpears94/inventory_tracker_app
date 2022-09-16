@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { InventoryContext } from '../App';
+import {StyledModalDiv} from './Styles.js'
 import "../styles/itemModal.css";
 
 export function ItemModal(props) {
@@ -11,14 +12,19 @@ export function ItemModal(props) {
   const [category, setCategory] = useState();
   const [subCategory, setSubCategory] = useState();
   const [filteredNames, setFilteredNames] = useState([]);
-  const {allUsers} = useContext(InventoryContext);
+  const {allUsers, stateTracker, setStateTracker} = useContext(InventoryContext);
     
+  const fetchToggle = () => {
+    stateTracker === false ? setStateTracker(true) : setStateTracker(false);
+  }
+
+
     const handleSubmit = () => {
       fetch('http://localhost:8080/items', {
         method: 'POST',
         body: JSON.stringify({
           'item_name': itemName,
-          'user_id': userName,
+          'user_name': userName,
           'item_description': itemDescription,
           'category_id': parseInt(category),
           'sub_category_id': parseInt(subCategory)      
@@ -28,10 +34,11 @@ export function ItemModal(props) {
         },
       })
         .then((response) => response.json())
-        .then((data) => console.log(data), alert('Item added! Please refresh the page to see the new item.'))
+        .then((data) => setStateTracker(fetchToggle), alert('Item added!'))
         .catch((error) => alert('Cannot add item'));
     };
 
+   
     const handleFilter = (event) => {
       const searchWord = event.target.value;
       console.log(searchWord);
@@ -45,12 +52,7 @@ export function ItemModal(props) {
       }
     };
 
-    function changeUserName() {
-      var txt = 'type user name';
-      document.getElementById('user_id').value = txt;
-    }
-  
-
+    
 
   return (
     <Modal
@@ -61,8 +63,9 @@ export function ItemModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">Add Item</Modal.Title>
-      </Modal.Header>
+      </Modal.Header>      
       <Modal.Body>
+        <StyledModalDiv>
         <label htmlFor="item_name">Item name:</label>{'\u00A0'}
         <input
           type="text"
@@ -76,16 +79,17 @@ export function ItemModal(props) {
           type="text"
           id="user_id"
           name="user_id"
-          onChange={ handleFilter}
+          onChange={ (e) => setUserName(e.target.value)  }
         />
+
         <div className="autoBoxRollOut">
                 {filteredNames.map((data) => {
                   return (
                     <li key={data.id} className="dataResult">
                       <div className="dataResult">
                         {data.user_name}
-                        <p onClick={changeUserName}>
-                        {/* <p onClick={() => setUserName(data)}> */}
+                        
+                        <p onClick={() => setUserName(data)}>
                           {data.fullName}
                           {console.log(userName)}
                         </p>
@@ -146,6 +150,7 @@ export function ItemModal(props) {
           <option value="12">SUV</option>
         </select>
         <br></br>
+        </StyledModalDiv>
         <Button type="submit" value="Add item" onClick={handleSubmit}>Add item</Button>
       </Modal.Body>
       <Modal.Footer>
