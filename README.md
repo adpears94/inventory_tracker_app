@@ -44,3 +44,7 @@ https://docs.google.com/presentation/d/14de-_tFoO-i9lwFASVCFwJrv8dL-kcsG4ccOv8_r
 
 ## Purpose
 The purpose of this application is to serve as a inventory tracker for a military unit.
+
+
+## Test
+Cypress testing was used to test the front end. Supertest was used to test the backend.
