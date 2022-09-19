@@ -43,10 +43,10 @@ app.use(function (req, res, next) {
   if (cookie === undefined) {
     // no: set a new cookie
     res.cookie("darkMode", false, { maxAge: 900000 });
-    console.log("cookie created successfully");
+    // console.log("cookie created successfully");
   } else {
     // yes, cookie was already present
-    console.log("cookie exists", cookie);
+    // console.log("cookie exists", cookie);
   }
   next(); // <-- important!
 });
