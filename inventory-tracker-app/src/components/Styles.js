@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-export const StyledBox = styled.div`
-  display: flex;
-  position: relative;
-  height: 100vh;
-  justify-content: space-evenly;
-  padding-top: 144px;
-`;
-
 export const StyledImgLeft = styled.img`
   width: 15rem;
   height: 15rem;
@@ -33,4 +25,13 @@ export const StyledModalDiv = styled.div`
   /* padding-left: 37%; */
   font-family: monospace;
   font-weight: bolder;
+`;
+
+export const StyledBox = styled.div`
+  display: flex;
+  position: relative;
+  height: 100vh;
+  justify-content: space-evenly;
+  padding-top: 144px;
+  /* background-color: $; */
 `;

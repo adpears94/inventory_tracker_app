@@ -11,18 +11,16 @@ import "./App.css";
 import { CheckedOut } from "./components/CheckedOut";
 import { Resources } from "./components/Resources";
 import { StyledBox } from "./components/Styles";
-
-export const InventoryContext = React.createContext();
+import { InventoryContext } from "./components/InventoryContext";
+import { DarkThemeContext } from "./components/DarkThemeContext";
 
 const App = () => {
   const [allItems, setAllItems] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [allUsers, setAllUsers] = useState([]);
   const [stateTracker, setStateTracker] = useState(false);
-  // const [darkMode, setDarkMode] = useState("#202d73");
- 
-  
-
+  const [darkMode, setDarkMode] = useState("#ffffff");
+  // #202d73
   useEffect(() => {
     fetch("http://localhost:8080/users")
       .then((res) => {
@@ -58,29 +56,36 @@ const App = () => {
     allUsers,
     setAllUsers,
     stateTracker,
-    setStateTracker
+    setStateTracker,
+  };
+
+  const themeObject = {
+    darkMode,
+    setDarkMode,
   };
 
   return (
-    <InventoryContext.Provider value={obj}>
-      <Banner />
-      <ColoredNavbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <StyledBox>
-              <SplashPage />
-            </StyledBox>
-          }
-        />
-        <Route path="/items" element={<ItemTable items={allItems} />} />
-        <Route path="/checkedout" element={<CheckedOut items={allItems} />} />
-        <Route path="/resources" element={<Resources />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      <Footer />
-    </InventoryContext.Provider>
+    <DarkThemeContext.Provider value={themeObject}>
+      <InventoryContext.Provider value={obj}>
+        <Banner />
+        <ColoredNavbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <StyledBox style={{ backgroundColor: `${darkMode}` }}>
+                <SplashPage />
+              </StyledBox>
+            }
+          />
+          <Route path="/items" element={<ItemTable items={allItems} />} />
+          <Route path="/checkedout" element={<CheckedOut items={allItems} />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer />
+      </InventoryContext.Provider>
+    </DarkThemeContext.Provider>
   );
 };
 

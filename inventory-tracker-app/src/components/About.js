@@ -6,50 +6,53 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { CDBBtn, CDBIcon, CDBBox } from "cdbreact";
-
-const AboutDiv = styled.div`
-  height: 100vh;
-  margin-bottom: 15%;
-`;
-const Banner = styled.h1`
-  /* text-align: center; */
-  margin-bottom: 30px;
-  font-family: "Roboto-Flex";
-`;
-const MissionDiv = styled.div`
-  text-align: center;
-  padding: 30px;
-  font-family: "Roboto-Flex";
-  border: 1px solid black;
-  background-color: gray;
-  border-radius: 10px;
-  margin-top: 1%;
-  margin-left: 1%;
-  margin-right: 1%;
-  margin-bottom: 3%;
-`;
-const DeveloperDiv = styled.div`
-  text-align: center;
-  padding: 30px;
-  display: flex;
-  flex-wrap: wrap;
-`;
-const CardContainer = styled.div`
-  display: flex;
-  padding: 30px;
-  font-family: "Roboto-Flex";
-  justify-content: center;
-  justify-content: space-around;
-`;
-
-const LinksContainer = styled.div`
-  text-align: center;
-  padding: 30px;
-  display: flex;
-  flex-wrap: wrap;
-`;
+import { useContext } from "react";
+import { DarkThemeContext } from "./DarkThemeContext";
 
 export const About = () => {
+  const { darkMode } = useContext(DarkThemeContext);
+  const AboutDiv = styled.div`
+    height: 100vh;
+    margin-bottom: 15%;
+    background-color: ${darkMode};
+  `;
+  const Banner = styled.h1`
+    /* text-align: center; */
+    margin-bottom: 30px;
+    font-family: "Roboto-Flex";
+  `;
+  const MissionDiv = styled.div`
+    text-align: center;
+    padding: 30px;
+    font-family: "Roboto-Flex";
+    border: 1px solid black;
+    background-color: gray;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 3%;
+  `;
+  const DeveloperDiv = styled.div`
+    text-align: center;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+  `;
+  const CardContainer = styled.div`
+    display: flex;
+    padding: 30px;
+    font-family: "Roboto-Flex";
+    justify-content: center;
+    justify-content: space-around;
+  `;
+
+  const LinksContainer = styled.div`
+    text-align: center;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+  `;
   return (
     <AboutDiv>
       <MissionDiv className="mission">

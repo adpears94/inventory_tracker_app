@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { DarkThemeContext } from "./DarkThemeContext";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import styled from "styled-components";
@@ -9,29 +10,29 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import pdf from "../../src/af1297.pdf";
 
-const StyledA = styled.a`
-  text-decoration: none;
-`;
-
-const StyledDiv = styled.div`
-  height: 100vh;
-  margin-bottom: 30%;
-`;
-
 export const Resources = () => {
   const [data, setData] = useState("");
-  // console.log("Data",data);
-  // const fileData = JSON.stringify(data);
-  // console.log("Stringified", fileData);
+  const { darkMode } = useContext(DarkThemeContext);
 
+  const StyledA = styled.a`
+    text-decoration: none;
+  `;
+
+  const StyledDiv = styled.div`
+    display: flex;
+    padding: 20px;
+    background-color: ${darkMode};
+    /* height: 100vh; */
+    /* margin-bottom: 30%; */
+  `;
   const handleSubmit = (e) => {
-      //const fileData = JSON.stringify(data);
-      const blob = new Blob([data], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.download = "grocery-list.txt";
-      link.href = url;
-      link.click();
+    //const fileData = JSON.stringify(data);
+    const blob = new Blob([data], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.download = "grocery-list.txt";
+    link.href = url;
+    link.click();
   };
 
   const handleChange = (e) => {
@@ -43,7 +44,7 @@ export const Resources = () => {
       <Container fluid>
         <Row>
           <Col>
-            <Card>
+            <Card style={{ backgroundColor: `${darkMode}` }}>
               <p>
                 Need some tips on tracking inventory? Checkout these useful
                 resources.
@@ -69,7 +70,7 @@ export const Resources = () => {
                 <Card.Img
                   src="https://gtpac.org/wp-content/uploads/2014/06/GSA-logo.png"
                   alt="gsa_image"
-                  style={{ width: "400px", height: "200px" }}
+                  style={{ width: "400px", height: "376px" }}
                 />
                 <Card.Title>
                   <StyledA
@@ -84,7 +85,7 @@ export const Resources = () => {
             </Card>
           </Col>
           <Col>
-            <Card>
+            <Card style={{ backgroundColor: `${darkMode}` }}>
               <p>
                 Below is the AF1927. Click{"\u00A0"}
                 <a href={pdf} target="_blank" rel="noopener noreferrer">
@@ -107,7 +108,7 @@ export const Resources = () => {
 
         <Row>
           <Col>
-            <Card>
+            <Card style={{ backgroundColor: `${darkMode}` }}>
               <p>
                 Need supplies? Visit the nearest supply store. Use the Get
                 Directions link.
@@ -144,7 +145,7 @@ export const Resources = () => {
             </Card>
           </Col>
           <Col>
-            <Card>
+            <Card style={{ backgroundColor: `${darkMode}` }}>
               <p>
                 Need to write down supply items? Use our built in grocery list!
               </p>
@@ -159,7 +160,9 @@ export const Resources = () => {
                     onChange={handleChange}
                   />
                 </InputGroup>
-                <Button style={{ marginTop: "20px" }} onClick={handleSubmit}>Save Grocery List</Button>
+                <Button style={{ marginTop: "20px" }} onClick={handleSubmit}>
+                  Save Grocery List
+                </Button>
               </Form>
             </Card>
           </Col>
