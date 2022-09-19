@@ -20,6 +20,7 @@ const App = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [stateTracker, setStateTracker] = useState(false);
   const [darkMode, setDarkMode] = useState("#ffffff");
+  const [icon, setIcon] = useState("./images/sun.png");
   // #202d73
   useEffect(() => {
     fetch("http://localhost:8080/users")
@@ -62,6 +63,8 @@ const App = () => {
   const themeObject = {
     darkMode,
     setDarkMode,
+    icon,
+    setIcon,
   };
 
   return (

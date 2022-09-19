@@ -45,7 +45,7 @@ const SunMoonImg = styled.img`
 
 const Banner = () => {
   const { toggle } = useContext(InventoryContext);
-  const { darkMode, setDarkMode } = useContext(DarkThemeContext);
+  const { darkMode, setDarkMode, icon, setIcon } = useContext(DarkThemeContext);
   const [name, setName] = useState("Rick");
 
   return (
@@ -61,12 +61,16 @@ const Banner = () => {
         </StyledOnline>
       )}
       <SunMoonImg
-        src="./images/sun.png"
+        src={`${icon}`}
         alt="sun"
         onClick={() => {
-          if (darkMode === "slategray") {
+          if (darkMode === "#ffffff") {
+            setDarkMode("slategray");
+            setIcon("./images/moon.png");
+          } else {
             setDarkMode("#ffffff");
-          } else setDarkMode("slategray");
+            setIcon("./images/sun.png");
+          }
         }}
       />
       <StyledWelcome>Welcome, {name}</StyledWelcome>
