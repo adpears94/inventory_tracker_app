@@ -44,7 +44,13 @@ export const Resources = () => {
       <Container fluid>
         <Row>
           <Col>
-            <Card style={{ backgroundColor: `${darkMode}` }}>
+            <Card
+              style={{
+                backgroundColor: `${darkMode}`,
+                width: "670px",
+                height: "682px",
+              }}
+            >
               <p>
                 Need some tips on tracking inventory? Checkout these useful
                 resources.
@@ -70,7 +76,7 @@ export const Resources = () => {
                 <Card.Img
                   src="https://gtpac.org/wp-content/uploads/2014/06/GSA-logo.png"
                   alt="gsa_image"
-                  style={{ width: "400px", height: "376px" }}
+                  style={{ width: "400px", height: "200px" }}
                 />
                 <Card.Title>
                   <StyledA
@@ -85,7 +91,13 @@ export const Resources = () => {
             </Card>
           </Col>
           <Col>
-            <Card style={{ backgroundColor: `${darkMode}` }}>
+            <Card
+              style={{
+                backgroundColor: `${darkMode}`,
+                width: "670px",
+                height: "682px",
+              }}
+            >
               <p>
                 Below is the AF1927. Click{"\u00A0"}
                 <a href={pdf} target="_blank" rel="noopener noreferrer">
@@ -108,7 +120,13 @@ export const Resources = () => {
 
         <Row>
           <Col>
-            <Card style={{ backgroundColor: `${darkMode}` }}>
+            <Card
+              style={{
+                backgroundColor: `${darkMode}`,
+                width: "670px",
+                height: "682px",
+              }}
+            >
               <p>
                 Need supplies? Visit the nearest supply store. Use the Get
                 Directions link.
@@ -145,7 +163,13 @@ export const Resources = () => {
             </Card>
           </Col>
           <Col>
-            <Card style={{ backgroundColor: `${darkMode}` }}>
+            <Card
+              style={{
+                backgroundColor: `${darkMode}`,
+                width: "670px",
+                height: "682px",
+              }}
+            >
               <p>
                 Need to write down supply items? Use our built in grocery list!
               </p>

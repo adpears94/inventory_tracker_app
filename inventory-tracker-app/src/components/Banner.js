@@ -46,7 +46,7 @@ const SunMoonImg = styled.img`
 const Banner = () => {
   const { toggle } = useContext(InventoryContext);
   const { darkMode, setDarkMode, icon, setIcon } = useContext(DarkThemeContext);
-  const [name, setName] = useState("Rick");
+  const [name, setName] = useState("Admin");
 
   return (
     <StyledBanner>

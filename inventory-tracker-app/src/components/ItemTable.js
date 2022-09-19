@@ -5,6 +5,8 @@ import { InventoryContext } from "./InventoryContext";
 import { DarkThemeContext } from "./DarkThemeContext";
 import "../App.css";
 import DisplayModal from "./ItemModal.js";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 const TableHeader = styled.thead`
   text-align: center;
@@ -17,6 +19,12 @@ export function ItemTable() {
   const [userName, setUserName] = useState();
   const [itemState, setItemState] = useState(allItems);
   const [deleteItem, setDeleteItem] = useState([]);
+
+  const handleDownloadTable = () => {
+    const pdf = new jsPDF();
+    pdf.autoTable({ html: "#table" });
+    pdf.save("data.pdf");
+  };
 
   const fetchToggle = () => {
     stateTracker === false ? setStateTracker(true) : setStateTracker(false);
@@ -62,7 +70,7 @@ export function ItemTable() {
   } else {
     return (
       <>
-        <Table striped bordered hover size="sm">
+        <Table striped bordered hover size="sm" id="table">
           <TableHeader>
             <tr>
               <th style={{ width: "20px" }}>Delete Item</th>
@@ -124,6 +132,7 @@ export function ItemTable() {
             })}
           </tbody>
         </Table>
+        <button onClick={() => handleDownloadTable}>Download Inventory</button>
         <DisplayModal />
       </>
     );
