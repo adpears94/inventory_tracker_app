@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <MDBFooter
       bgColor="primary"
-      className="text-center text-white position-sticky fixed-bottom mt-5"
+      className="text-center text-white "
     >
       <MDBContainer className="p-3 pb-0">
         <section className="mb-4">

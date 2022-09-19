@@ -14,6 +14,7 @@ function SplashPage() {
   const handleSubmit = () => {
     fetch("http://localhost:8080/users", {
       method: "POST",
+      credentials: "include",
       body: JSON.stringify({
         user_name: username,
         squadron: squadron,
@@ -33,8 +34,8 @@ function SplashPage() {
       setBaseImg("./images/amc.png");
     } else if (e.target.value === "Patrick AFB") {
       setBaseImg("./images/spd6.png");
-    } else if (e.target.value === "Schriever AFB") {
-      setBaseImg("./images/schriever sfb.png");
+    } else if (e.target.value === "Schriever SFB") {
+      setBaseImg("./images/schriever-sfb.png");
     }
   };
 
@@ -44,7 +45,7 @@ function SplashPage() {
     } else if (e.target.value === "2 SOPS") {
       setSquadronImg("./images/2sops.png");
     } else if (e.target.value === "45 SFS") {
-      setSquadronImg("./images/45sfs.jfif");
+      setSquadronImg("./images/45sfs.png");
     }
   };
 
@@ -99,7 +100,11 @@ function SplashPage() {
               <option>45 SFS</option>
             </Form.Select>
           </Form.Group>
-          <Button className="button" type="submit" onClick={() => handleSubmit()}>
+          <Button
+            className="button"
+            type="submit"
+            onClick={() => handleSubmit()}
+          >
             Submit
           </Button>
         </fieldset>

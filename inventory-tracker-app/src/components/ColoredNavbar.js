@@ -6,7 +6,7 @@ import "../App.css";
 
 function NavScrollExample() {
   return (
-    <Navbar bg="primary" variant="dark">
+    <Navbar bg="primary" variant="dark" sticky="top">
       <Container fluid>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

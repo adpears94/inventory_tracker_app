@@ -19,6 +19,8 @@ https://docs.google.com/presentation/d/14de-_tFoO-i9lwFASVCFwJrv8dL-kcsG4ccOv8_r
 
 ### Database
 1. Ensure that you have installed postgres in a Docker container and psql inside the postgres image
+-- important: `docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 \
+-v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres`
 2. Install the database by importing the sql file in postgres from the path specified by running:
 `docker cp path/Project-3/server/inventory.sql <container id>:/tmp/inventory.sql`
 3. A database can also be manually made inside psql by running the query:

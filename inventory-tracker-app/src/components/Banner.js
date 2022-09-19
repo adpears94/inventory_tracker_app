@@ -11,6 +11,7 @@ const StyledBanner = styled.div`
 
 const StyledHeading = styled.h1`
   margin: auto;
+  color: white;
 `;
 
 const StyledOnline = styled.h4`
@@ -18,6 +19,7 @@ const StyledOnline = styled.h4`
   padding-top: 10px;
   padding-left: 10px;
   font-size: 17px;
+  color: white;
 `;
 
 const StyledWelcome = styled.h3`
@@ -41,11 +43,12 @@ const SunMoonImg = styled.img`
   padding-right: 0px;
   font-size: 17px;
   margin-right: 4px;
+  cursor: pointer;
 `;
 
 const Banner = () => {
   const { toggle } = useContext(InventoryContext);
-  const { darkMode, setDarkMode, icon, setIcon } = useContext(DarkThemeContext);
+  const { darkMode, setDarkMode, icon, setIcon, setTableColor } = useContext(DarkThemeContext);
   const [name, setName] = useState("Admin");
 
   return (
@@ -62,15 +65,20 @@ const Banner = () => {
       )}
       <SunMoonImg
         src={`${icon}`}
-        alt="sun"
+        alt="sun/moon"
         onClick={() => {
-          if (darkMode === "#ffffff") {
+          if (document.cookie === 'darkMode=false') {
             setDarkMode("slategray");
+            setTableColor("dark")
             setIcon("./images/moon.png");
+            document.cookie = "darkMode=true";
+            
           } else {
             setDarkMode("#ffffff");
+            setTableColor("light")
             setIcon("./images/sun.png");
-          }
+            document.cookie = "darkMode=false";           
+                      }
         }}
       />
       <StyledWelcome>Welcome, {name}</StyledWelcome>
@@ -79,3 +87,5 @@ const Banner = () => {
 };
 
 export default Banner;
+
+

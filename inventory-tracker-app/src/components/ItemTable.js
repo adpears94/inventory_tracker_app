@@ -1,8 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import Table from "react-bootstrap/Table";
 import styled from "styled-components";
 import { InventoryContext } from "./InventoryContext";
 import { DarkThemeContext } from "./DarkThemeContext";
+import Button from "react-bootstrap/Button";
 import "../App.css";
 import DisplayModal from "./ItemModal.js";
 import jsPDF from "jspdf";
@@ -15,15 +16,21 @@ const TableHeader = styled.thead`
 export function ItemTable() {
   const { allItems, setAllItems, stateTracker, setStateTracker } =
     useContext(InventoryContext);
-  const { darkMode } = useContext(DarkThemeContext);
-  const [userName, setUserName] = useState();
-  const [itemState, setItemState] = useState(allItems);
-  const [deleteItem, setDeleteItem] = useState([]);
+  const { darkMode, tableColor } = useContext(DarkThemeContext);
+  // const [userName, setUserName] = useState();
+  // const [itemState, setItemState] = useState(allItems);
+  // const [deleteItem, setDeleteItem] = useState([]);
+  const StyledDiv = styled.div`
+    height: 100vh;
+    // margin-bottom: 15%;
+    padding: 1%;
+    background-color: ${darkMode};
+  `;
 
   const handleDownloadTable = () => {
     const pdf = new jsPDF();
     pdf.autoTable({ html: "#table" });
-    pdf.save("data.pdf");
+    pdf.save("inventory.pdf");
   };
 
   const fetchToggle = () => {
@@ -31,14 +38,19 @@ export function ItemTable() {
   };
 
   const handleDelete = (item) => {
+    console.log(item);
     fetch(`http://localhost:8080/items/${item}`, {
       method: "DELETE",
-    }).then((data) => setStateTracker(fetchToggle), alert("Item deleted"));
+      credentials: "include",
+    })
+      .then(() => fetchToggle())
+      .catch((error) => console.log(error));
   };
 
   const handleCheckout = (item) => {
     fetch(`http://localhost:8080/items/${item.id}`, {
       method: "PATCH",
+      credentials: "include",
       body: JSON.stringify({
         checked_out: !item.checked_out,
       }),
@@ -55,7 +67,7 @@ export function ItemTable() {
           })
         );
       })
-      .then(setStateTracker(fetchToggle))
+      .then(() => fetchToggle())
       .catch((error) => console.log(error));
   };
 
@@ -69,8 +81,8 @@ export function ItemTable() {
     );
   } else {
     return (
-      <>
-        <Table striped bordered hover size="sm" id="table">
+      <StyledDiv>
+        <Table striped bordered hover size="sm" id="table" variant={tableColor}>
           <TableHeader>
             <tr>
               <th style={{ width: "20px" }}>Delete Item</th>
@@ -98,9 +110,10 @@ export function ItemTable() {
                           marginLeft: "auto",
                           marginRight: "auto",
                           cursor: "pointer",
-                          backgroundColor: `${darkMode}`,
+                          // backgroundColor: `${darkMode}`,
                         }}
                         src="./images/delete.png"
+                        alt="delete"
                         onClick={() => handleDelete(item.id)}
                       />
                     </td>
@@ -114,6 +127,7 @@ export function ItemTable() {
                           cursor: "pointer",
                         }}
                         src="./images/checkout.png"
+                        alt="checkout"
                         onClick={() => handleCheckout(item)}
                       ></img>
                     </td>
@@ -132,9 +146,14 @@ export function ItemTable() {
             })}
           </tbody>
         </Table>
-        <button onClick={() => handleDownloadTable}>Download Inventory</button>
+        <Button
+          style={{ marginRight: "5px", marginLeft: "8px" }}
+          onClick={() => handleDownloadTable()}
+        >
+          Download Inventory
+        </Button>
         <DisplayModal />
-      </>
+      </StyledDiv>
     );
   }
 }

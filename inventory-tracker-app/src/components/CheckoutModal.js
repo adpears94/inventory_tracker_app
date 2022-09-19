@@ -13,6 +13,7 @@ export function CheckoutModal(props) {
   const handleCheckout = (item) => {
     fetch(`http://localhost:8080/items/${item}`, {
       method: "PATCH",
+      credentials: "include",
       body: JSON.stringify({
         // 'user_id': userName,
         checked_out: checkedOut,

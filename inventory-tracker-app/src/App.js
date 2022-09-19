@@ -21,9 +21,17 @@ const App = () => {
   const [stateTracker, setStateTracker] = useState(false);
   const [darkMode, setDarkMode] = useState("#ffffff");
   const [icon, setIcon] = useState("./images/sun.png");
+  const [tableColor, setTableColor] = useState("light");
+
+     
+
+   
   // #202d73
   useEffect(() => {
-    fetch("http://localhost:8080/users")
+    fetch("http://localhost:8080/users", {
+      method: "GET",
+      credentials: "include",
+    })
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -31,12 +39,36 @@ const App = () => {
       })
       .then((data) => {
         setAllUsers(data);
+        const cookie = document.cookie;
+        const parseCookie = (str) =>
+          str
+            .split(";")
+            .map((v) => v.split("="))
+            .reduce((acc, v) => {
+              acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(
+                v[1].trim()
+              );
+              return acc;
+            }, {});
+        var cookieDarkMode = parseCookie(cookie).darkMode;
+        if (cookieDarkMode === "true"){
+          setDarkMode("slategray");
+          setTableColor("dark");
+          setIcon("./images/moon.png")
+        } else {
+          setDarkMode("#ffffff");
+          setTableColor("light");
+          setIcon("./images/sun.png")
+        }
       })
       .then(console.log("im fetching users"));
   }, []);
-
+  
   useEffect(() => {
-    fetch("http://localhost:8080/itemswithusers")
+    fetch("http://localhost:8080/itemswithusers",{
+      method: "GET",
+      credentials: "include",
+    })
       .then((res) => {
         if (res.ok) {
           setToggle(true);
@@ -65,6 +97,8 @@ const App = () => {
     setDarkMode,
     icon,
     setIcon,
+    tableColor,
+    setTableColor
   };
 
   return (

@@ -22,6 +22,7 @@ export function ItemModal(props) {
   const handleSubmit = () => {
     fetch("http://localhost:8080/items", {
       method: "POST",
+      credentials: "include",      
       body: JSON.stringify({
         item_name: itemName,
         user_name: userName,
@@ -34,7 +35,7 @@ export function ItemModal(props) {
       },
     })
       .then((response) => response.json())
-      .then((data) => setStateTracker(fetchToggle), alert("Item added!"))
+      .then((data) => setStateTracker(fetchToggle))
       .catch((error) => alert("Cannot add item"));
   };
 
@@ -89,7 +90,7 @@ export function ItemModal(props) {
                   <div className="dataResult">
                     {data.user_name}
 
-                    <p onClick={() => setUserName(data)}>
+                    <p onClick={() => handleFilter(data)}>
                       {data.fullName}
                       {console.log(userName)}
                     </p>
