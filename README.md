@@ -42,3 +42,5 @@ https://docs.google.com/presentation/d/14de-_tFoO-i9lwFASVCFwJrv8dL-kcsG4ccOv8_r
 `npm i`
 2. Run the server by: `npm start`
 
+## Purpose
+The purpose of this application is to serve as a inventory tracker for a military unit.
